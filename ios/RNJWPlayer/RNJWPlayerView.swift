@@ -749,6 +749,10 @@ class RNJWPlayerView : UIView, JWPlayerDelegate, JWPlayerStateDelegate, JWAdDele
             playerViewController.interfaceFadeDelay = interfaceFadeDelay.doubleValue
         }
 
+        if let playbackRates = config["playbackRates"] as? [Double] {
+            playerViewController.playbackRates = playbackRates
+        }
+
         if let forceFullScreenOnLandscape = config["fullScreenOnLandscape"] as? Bool {
             playerViewController.forceFullScreenOnLandscape = forceFullScreenOnLandscape
         }

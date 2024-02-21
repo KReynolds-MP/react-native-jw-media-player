@@ -208,6 +208,7 @@ export default class JWPlayer extends Component {
 			viewOnly: PropTypes.bool,
 			autostart: PropTypes.bool,
 			controls: PropTypes.bool,
+			playbackRates: PropTypes.arrayOf(PropTypes.number),
 			repeat: PropTypes.bool,
 			preload: PropTypes.oneOf(['auto', 'none']),
 			playlist: PropTypes.arrayOf(
@@ -435,6 +436,11 @@ export default class JWPlayer extends Component {
 	setSpeed(speed) {
 		if (RNJWPlayerManager)
 			RNJWPlayerManager.setSpeed(this.getRNJWPlayerBridgeHandle(), speed);
+	}
+
+	setPlaybackRates(playbackRates) {
+		if (RNJWPlayerManager)
+			RNJWPlayerManager.setPlaybackRates(this.getRNJWPlayerBridgeHandle(), playbackRates)
 	}
 
 	setCurrentQuality(index) {
