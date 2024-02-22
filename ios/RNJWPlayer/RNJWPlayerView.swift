@@ -10,7 +10,7 @@ import AVFoundation
 import AVKit
 import MediaPlayer
 import React
-import GoogleCast
+// import GoogleCast
 import JWPlayerKit
 
 class RNJWPlayerView : UIView, JWPlayerDelegate, JWPlayerStateDelegate, JWAdDelegate, JWCastDelegate, JWAVDelegate, JWPlayerViewDelegate, JWPlayerViewControllerDelegate, JWDRMContentKeyDataSource, AVPictureInPictureControllerDelegate {

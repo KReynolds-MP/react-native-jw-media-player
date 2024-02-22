@@ -438,11 +438,6 @@ export default class JWPlayer extends Component {
 			RNJWPlayerManager.setSpeed(this.getRNJWPlayerBridgeHandle(), speed);
 	}
 
-	setPlaybackRates(playbackRates) {
-		if (RNJWPlayerManager)
-			RNJWPlayerManager.setPlaybackRates(this.getRNJWPlayerBridgeHandle(), playbackRates)
-	}
-
 	setCurrentQuality(index) {
 		if (RNJWPlayerManager && Platform.OS === "android")
 		  RNJWPlayerManager.setCurrentQuality(
