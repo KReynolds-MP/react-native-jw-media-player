@@ -176,6 +176,7 @@ public class RNJWPlayerView extends RelativeLayout implements
 
     Boolean backgroundAudioEnabled = false;
 
+    Array<Double> playbackRates = null;
     Boolean landscapeOnFullScreen = false;
     Boolean fullScreenOnLandscape = false;
     Boolean portraitOnExitFullScreen = false;
