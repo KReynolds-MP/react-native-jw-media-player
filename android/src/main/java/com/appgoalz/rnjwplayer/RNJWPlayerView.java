@@ -710,10 +710,10 @@ public class RNJWPlayerView extends RelativeLayout implements
         if (prop.hasKey("playbackRates")) {
             ReadableArray playbackRatesArray = prop.getArray("playbackRates");
             double[] playbackRates = new double[playbackRatesArray.size()];
-            for (int i = 0, i < playbackRatesArray.size(), i++) {
+            for (int i = 0; i < playbackRatesArray.size(); i++) {
                 playbackRates[i] = playbackRatesArray.getDouble(i);
             }
-            configBuilder.playbackRates(playbackRates)
+            configBuilder.playbackRates(playbackRates);
         }
 
         PlayerConfig playerConfig = configBuilder.build();
