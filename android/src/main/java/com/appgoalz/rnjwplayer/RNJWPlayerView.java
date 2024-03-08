@@ -176,7 +176,6 @@ public class RNJWPlayerView extends RelativeLayout implements
 
     Boolean backgroundAudioEnabled = false;
 
-    Array<Double> playbackRates = null;
     Boolean landscapeOnFullScreen = false;
     Boolean fullScreenOnLandscape = false;
     Boolean portraitOnExitFullScreen = false;
@@ -563,6 +562,7 @@ public class RNJWPlayerView extends RelativeLayout implements
                         .useTextureView(oldConfig.useTextureView())
                         .thumbnailPreview(oldConfig.getThumbnailPreview())
                         .mute(oldConfig.getMute())
+                        .playbackRates(oldConfig.getPlaybackRates())
                         .build();
 
                 mPlayer.setup(config);
@@ -707,6 +707,15 @@ public class RNJWPlayerView extends RelativeLayout implements
             configBuilder.uiConfig(hideJwControlbarUiConfig);
         }
 
+        if (prop.hasKey("playbackRates")) {
+            ReadableArray playbackRatesArray = prop.getArray("playbackRates");
+            double[] playbackRates = new double[playbackRatesArray.size()];
+            for (int i = 0, i < playbackRatesArray.size(), i++) {
+                playbackRates[i] = playbackRatesArray.getDouble(i);
+            }
+            configBuilder.playbackRates(playbackRates)
+        }
+
         PlayerConfig playerConfig = configBuilder.build();
 
         Context simpleContext = getNonBuggyContext(getReactContext(), getAppContext());
@@ -726,11 +735,6 @@ public class RNJWPlayerView extends RelativeLayout implements
 
         if (prop.hasKey("controls")) { // Hack for controls hiding not working right away
             mPlayerView.getPlayer().setControls(prop.getBoolean("controls"));
-        }
-        
-        if (prop.hasKey("playbackRates")) {
-            playbackRates = prop.getArray("playbackRates");
-            mPlayerView.playbackRates = playbackRates;
         }
 
         if (prop.hasKey("fullScreenOnLandscape")) {
